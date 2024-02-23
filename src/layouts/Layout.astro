@@ -18,7 +18,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Hi, everyone! Let's Build your next web project!"
+      content="Hi, you! Let's Build your next web project!"
     />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -30,6 +30,17 @@ const { title } = Astro.props;
     <title>{title}</title>
     <ViewTransitions />
   </head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT6VJ79Z83"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MT6VJ79Z83');
+  </script>
+
   <body>
     <div class="content-wrapper">
       <MainNav />
