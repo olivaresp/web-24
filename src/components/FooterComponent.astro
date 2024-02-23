@@ -1,0 +1,35 @@
+---
+import icoGithub from "../assets/images/ico_github--white.svg";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <p class="footer__copyright caption--xs">
+    Aconcagua valley, Chile ⥊ Buenos Aires, Argentina · {year}
+  </p>
+  <div class="footer__social">
+    <a href="https://www.github.com/olivaresp" target="_blank" rel="noopener">
+      <img
+        class="footer__ico-github"
+        src={icoGithub.src}
+        width={icoGithub.width}
+        height={icoGithub.height}
+        alt="Icono Github"
+      />
+    </a>
+  </div>
+</footer>
+
+<style lang="sass">
+  .footer
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .footer__copyright
+      color: var(--clr-gray-01)
+      letter-spacing: .4rem
+      margin-right: calc(.4rem * -1)
+      line-height: inherit
+</style>

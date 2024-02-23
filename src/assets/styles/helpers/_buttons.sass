@@ -1,0 +1,174 @@
+@use '_mixins' as *
+
+a.btn,
+.btn
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  background-color: var(--clr-white)
+  border: 1px solid var(--clr-white)
+  color: var(--clr-black)
+  height: 48px
+  width: 100%
+  min-width: 300px
+  padding: var(--sp-no) var(--sp-l)
+  border-radius: var(--radius-m)
+  text-align: center
+  font-family: var(--ff-bold)
+  font-size: var(--fs-paragraph)
+  letter-spacing: .7rem
+  text-transform: uppercase
+  white-space: nowrap
+  text-decoration: none
+  cursor: pointer
+  @include box-sizing-border-box
+  @include transition
+
+  &[disabled]
+    background-color: var(--clr-primary--light)
+    border-color: var(--clr-primary--light)
+    color: var(--clr-white)
+    opacity: .5
+    cursor: not-allowed
+
+  &.btn--outline
+    background-color: var(--clr-white)
+    border: 1px solid var(--clr-primary)
+    color: var(--clr-primary)
+
+    &[disabled]
+      border-color: var(--clr-primary--light)
+      color: var(--clr-primary--light)
+
+    .loader
+      color: var(--clr-primary--light)
+
+  &.btn--ghost
+    background-color: transparent
+    border-color: transparent
+    color: var(--clr-primary)
+    cursor: pointer
+
+    &[disabled]
+      background-color: transparent
+      border-color: transparent
+      color: var(--clr-primary--light)
+      cursor: not-allowed
+
+  &.btn--link
+    background-color: transparent
+    border: 1px solid transparent
+    color: var(--clr-primary)
+    cursor: pointer
+    padding: var(--sp-no)
+
+    &[disabled]
+      background-color: transparent
+      border-color: transparent
+      color: var(--clr-primary--light)
+      cursor: not-allowed
+
+  &.btn--danger
+    background-color: var(--clr-danger)
+    border-color: var(--clr-danger)
+    color: var(--clr-white)
+
+    &[disabled]
+      background-color: var(--clr-danger--light)
+      border-color: var(--clr-danger--light)
+      color: var(--clr-white)
+
+  &.btn--icon
+    gap: var(--sp-n)
+
+    .icon
+      height: 20px
+
+  &.btn--xs
+    height: 24px
+    padding: var(--sp-no) var(--sp-n)
+    font-size: var(--fs-caption-xs)
+
+    &.btn--icon
+      gap: var(--sp-s)
+
+      .icon
+        height: 14px
+
+  &.btn--sm
+    height: 30px
+    padding: var(--sp-no) var(--sp-m)
+    font-size: var(--fs-caption)
+
+    &.btn--icon
+      gap: var(--sp-n)
+
+      .icon
+        height: 16px
+
+  &.btn--lg
+    height: 60px
+    padding: var(--sp-no) var(--sp-l)
+    font-size: var(--fs-paragraph)
+
+    &.btn--icon
+      gap: var(--sp-m)
+
+      .icon
+        height: 24px
+
+  &.btn--block
+    flex-grow: 1
+
+  &.btn--circle
+    height: 70px
+    width: 70px
+    border-radius: var(--radius-circle)
+
+    .icon
+      height: 28px
+
+  &.btn--fixed
+    position: fixed
+    z-index: 9
+    bottom: var(--sp-m)
+    right: var(--sp-m)
+
+  &.btn--loading,
+  &.btn--icon
+    &.btn--loading
+      gap: var(--sp-no)
+
+.actions
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-start
+  align-items: center
+  gap: var(--sp-n)
+
+.loader
+  width: 6px
+  height: 6px
+  border-radius: var(--radius-circle)
+  display: block
+  margin: var(--sp-no) var(--sp-m)
+  position: relative
+  color: var(--clr-white)
+  box-sizing: border-box
+  animation: animloader 1.7s linear infinite alternate
+
+@keyframes animloader
+  0%
+    box-shadow: -18px -5px, -6px 5px, 6px -5px
+  33%
+    box-shadow: -18px 5px, -6px -5px, 6px 5px
+  66%
+    box-shadow: -18px -5px, -6px 5px, 6px -5px
+  100%
+    box-shadow: -18px 5px, -6px -5px, 6px 5px
+
+// Exclusivo para vistas SOBRE los 769px de ancho (Tablet y Desktop)
+@media (min-width: 769px)
+  a.btn,
+  .btn
+    width: auto

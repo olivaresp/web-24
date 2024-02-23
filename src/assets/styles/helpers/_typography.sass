@@ -1,0 +1,112 @@
+\:root
+  --fs-jumbo: 80px
+  --fs-title-1: 64px
+  --fs-title-2: 36px
+  --fs-title-3: 24px
+  --fs-paragraph: 16px
+  --fs-paragraph-xs: 14px
+  --fs-caption: 12px
+  --fs-caption-xs: 9px
+
+  --ff-regular: 'AvenirNextLTPro-Regular'
+  --ff-bold: 'AvenirNextLTPro-Heavy'
+
+// Exported font-family used across the system - Requires fonts files in "/assets/fonts" or "public/fonts"
+@font-face
+  font-family: 'AvenirNextLTPro-Regular'
+  src: url('../fonts/AvenirNextLTPro-Regular.otf')
+  src: url('../fonts/AvenirNextLTPro-Regular.otf') format("opentype")
+  font-weight: 500
+
+@font-face
+  font-family: 'AvenirNextLTPro-Heavy'
+  src: url('../fonts/AvenirNextLTPro-Heavy.otf')
+  src: url('../fonts/AvenirNextLTPro-Heavy.otf') format("opentype")
+  font-weight: 900
+
+// Base font styles
+h1, h2, h3, h4, h5, h6, p
+  margin: var(--sp-no)
+
+h1
+  font-family: var(--ff-bold)
+  font-size: var(--fs-title-1)
+  letter-spacing: 0.3rem
+  // line-height: 64px
+
+h2
+  font-family: var(--ff-bold)
+  font-size: var(--fs-title-2)
+  letter-spacing: 0.3rem
+  line-height: 44px
+
+h3
+  font-family: var(--ff-bold)
+  font-size: var(--fs-title-3)
+  letter-spacing: 0.3rem
+  margin-bottom: var(--sp-xs)
+
+h4
+  font-family: var(--ff-bold)
+  font-size: var(--fs-paragraph)
+  line-height: 20px
+
+h5
+  font-family: var(--ff-bold)
+  font-size: var(--fs-caption)
+  line-height: 16px
+
+h6
+  font-family: var(--ff-bold)
+  font-size: var(--fs-caption-xs)
+  line-height: 16px
+
+p
+  font-family: var(--ff-regular)
+  font-size: var(--fs-caption)
+  line-height: 22px
+  letter-spacing: 0.2rem
+  overflow-wrap: break-word
+  hyphens: none
+
+  &.paragraph-sm
+    font-size: var(--fs-paragraph-sm)
+    line-height: 20px
+
+  &.caption
+    font-size: var(--fs-caption)
+    line-height: 16px
+
+  &.caption--xs
+    font-size: var(--fs-caption-xs)
+    line-height: 11px
+
+strong
+  font-family: var(--ff-bold)
+  font-weight: bold
+
+a
+  font-family: var(--ff-regular)
+  line-height: 22px
+  letter-spacing: 0.02em
+  color: inherit
+  overflow-wrap: break-word
+  word-wrap: break-word
+  hyphens: none
+
+// text alignment classes
+.text-left
+  text-align: left
+
+.text-right
+  text-align: right
+
+.text-center
+  text-align: center
+
+// Text color classes
+.text-alt
+  color: var(--clr-text--alt)
+
+.text-danger
+  color: var(--clr-danger)

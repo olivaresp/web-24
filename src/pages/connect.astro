@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Front-End Dev">
+  <div class="main-container">
+    <div class="titles">
+      <h3>Be cool</h3>
+      <p>Your data is safe and will not be added to spam lists.</p>
+    </div>
+    <form
+      class="form form--inline"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+    >
+      <input
+        type="hidden"
+        name="access_key"
+        value="73197cf9-edbd-4a83-8f9c-d8df078c5576"
+      />
+      <input type="hidden" name="subject" value="Nuevo contacto" />
+      <input type="hidden" name="from_name" value="andresolivares.com" />
+
+      <div class="input-container">
+        <input
+          class="input__element"
+          type="text"
+          name="social_name"
+          placeholder="Social name"
+          required
+        />
+      </div>
+      <div class="input-container">
+        <input
+          class="input__element"
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <input
+        type="hidden"
+        name="redirect"
+        value="https://ao-web.vercel.app/thanks"
+      />
+      <button class="btn" type="submit">Send</button>
+    </form>
+  </div>
+</Layout>

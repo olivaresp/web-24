@@ -1,0 +1,49 @@
+@forward 'helpers/_mixins'
+
+@use 'helpers/_normalize'
+@use 'helpers/_colors'
+@use 'helpers/_form'
+@use 'helpers/_inputs'
+@use 'helpers/_media'
+@use 'helpers/_radius'
+@use 'helpers/_spaces'
+@use 'helpers/_typography'
+@use 'helpers/_buttons'
+
+html,
+body
+  background-color: var(--clr-background)
+  color: var(--clr-text)
+  margin: var(--sp-no)
+  padding: var(--sp-no)
+  font-family: var(--ff-regular)
+  font-size: var(--fs-paragraph)
+  text-transform: uppercase
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+  .content-wrapper
+    display: grid
+    grid-template-rows: auto 1fr auto
+    height: 100svh
+    padding: var(--sp-l)
+    box-sizing: border-box
+
+    .main-content
+      display: flex
+      place-items: center
+      text-align: center
+
+      .main-container
+        width: 100%
+
+        .titles
+          margin-bottom: var(--sp-m)
+
+        .hi,
+        .thanks
+          .btn
+            margin-top: var(--sp-m)
+
+// Exclusivo para vistas SOBRE los 769px de ancho (Tablet y Desktop)
+@media (min-width: 769px)

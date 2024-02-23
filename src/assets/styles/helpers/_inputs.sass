@@ -1,0 +1,145 @@
+@use '_mixins' as *
+
+.input-container
+  width: 100%
+
+  &.input-container--error
+    .input__element
+      border-color: var(--clr-danger)
+
+    .input__error
+      display: block
+
+.input__label
+  display: block
+  width: 100%
+  font-family: var(--ff-regular)
+  font-size: var(--fs-paragraph-sm)
+  margin-bottom: var(--sp-xs)
+  color: var(--clr-text--alt-dark)
+
+.input__element
+  padding: var(--sp-n) var(--sp-m)
+  border: 1px solid var(--clr-gray-01)
+  border-radius: var(--radius-m)
+  font-family: var(--ff-regular)
+  letter-spacing: 0.1rem
+  color: var(--clr-text)
+  background-color: var(--clr-black)
+  @include box-sizing-border-box
+
+  &:not([type=image])
+    width: 100%
+    height: 48px
+
+  &:focus,
+  &:active
+    outline: none
+    border-color: var(--clr-white)
+
+  &::placeholder
+    color: var(--clr-text--alt-light)
+
+  &[disabled]
+    opacity: .5
+    cursor: not-allowed
+
+  &[readonly]
+    background-color: var(--clr-gray--01)
+
+  &[type=color]
+    padding: var(--sp-no)
+    width: 50px
+    border: none
+    border-radius: var(--radius-circle)
+
+    &:focus
+      border: 2px solid var(--clr-primary)
+
+    &::-webkit-color-swatch-wrapper
+      padding: var(--sp-no)
+
+    &::-webkit-color-swatch
+      border-radius: var(--radius-circle)
+      border: none
+
+    &::-moz-color-swatch
+      border-radius: var(--radius-circle)
+      border: none
+
+  &[type=date],
+  &[type=datetime-local],
+  &[type=time],
+  &[type=month]
+    -webkit-appearance: none
+    background-color: var(--clr-white)
+
+    &::-webkit-date-and-time-value
+      text-align: left
+      color: var(--clr-text)
+
+  &[type=image]
+    padding: var(--sp-no)
+    border: none
+    border-radius: var(--sp-no)
+
+  &[type=range]
+    -webkit-appearance: none
+    padding: var(--sp-no)
+    border: none
+
+    &::-webkit-slider-runnable-track
+      height: 5px
+      background-color: var(--clr-gray--02)
+      border-radius: var(--radius)
+
+    &::-moz-range-track
+      height: 5px
+      background-color: var(--clr-gray--02)
+      border-radius: var(--radius)
+
+    &::-webkit-slider-thumb
+      -webkit-appearance: none
+      height: var(--sp-m)
+      width: var(--sp-m)
+      border-radius: 50%
+      background: var(--clr-primary)
+      margin-top: -6px
+      box-shadow: none
+
+    &::-moz-range-thumb
+      height: var(--sp-m)
+      width: var(--sp-m)
+      border-radius: 50%
+      background: var(--clr-primary)
+      margin-top: -7px
+      box-shadow: none
+      border: none
+
+  &[type=tel]
+    &:valid
+      border-color: var(--clr-success)
+
+    &:invalid
+      border-color: var(--clr-danger)
+
+.input__info
+  display: block
+  width: 100%
+
+  p
+    font-size: var(--fs-caption)
+    color: var(--clr-text--alt-dark)
+
+.draggable-area
+  &.draggable-area--dragging
+    border-color: var(--clr-primary)
+
+    .input__element
+      border-color: var(--clr-primary)
+
+// Exclusivo para vistas SOBRE los 1214px de ancho (Desktop)
+@media (min-width: 1214px)
+  .input-container
+    margin-bottom: var(--sp-n)
+    max-width: 300px
