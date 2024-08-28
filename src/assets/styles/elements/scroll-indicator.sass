@@ -1,0 +1,62 @@
+.scroll-indicator
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: flex-end
+  position: fixed
+  bottom: var(--sp-xxl)
+  left: calc(50% - 15px)
+  transition: all 400ms ease-out
+  visibility: visible
+  opacity: 1
+
+  &.hidden
+    visibility: hidden
+    opacity: 0
+    transition: all 400ms ease-out
+
+  .scroll-indicator__content
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: var(--sp-n)
+    margin-right: var(--sp-n)
+
+    .scroll-indicator__text
+      font-size: .6rem
+      text-transform: uppercase
+      font-family: var(--ff-bold)
+      color: var(--clr-white)
+
+    .scroll
+      height: calc(30px * .5)
+      width: 30px
+      border-radius: 30px
+      border: calc(30px / 20) solid var(--clr-white)
+      position: relative
+
+      &:before
+        content: ''
+        position: absolute
+        right: calc(30px / 5)
+        top: calc(50% - 30px / 20)
+        height: calc(30px / 10)
+        width: calc(30px / 10)
+        background: var(--clr-white)
+        border-radius: 50%
+        animation: scroll-animation 1.8s infinite
+
+@keyframes scroll-animation
+  0%
+    opacity: 0
+
+  20%
+    opacity: 1
+    transform: translateX(0)
+
+  40%
+    opacity: 1
+
+  100%
+    opacity: 0
+    transform: translateX(calc(-30px / 2))

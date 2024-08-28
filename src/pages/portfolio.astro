@@ -1,0 +1,184 @@
+---
+import { Image } from 'astro:assets';
+
+import Layout from '../layouts/Layout.astro'
+
+import sampleIlegal from '../assets/images/portfolio-samples/sample_ilegal.jpg';
+import sampleAcademia from '../assets/images/portfolio-samples/sample_academia.jpg';
+import sampleVina from '../assets/images/portfolio-samples/sample_vina.jpg';
+import sampleAtix from '../assets/images/portfolio-samples/sample_atix.jpg';
+
+import brandAstro from "../assets/images/brands/brand-astro.svg";
+import brandFigma from "../assets/images/brands/brand-figma.svg";
+import brandHeroku from "../assets/images/brands/brand-heroku.svg";
+import brandJs from "../assets/images/brands/brand-js.svg";
+import brandNode from "../assets/images/brands/brand-node.svg";
+import brandRails from "../assets/images/brands/brand-rails.svg";
+import brandVercel from "../assets/images/brands/brand-vercel.svg";
+import brandVue from "../assets/images/brands/brand-vue.svg";
+import brandWordpress from "../assets/images/brands/brand-wordpress.svg";
+
+
+---
+
+<!-- <script>
+  import { gsap } from 'gsap/dist/gsap'
+
+  const timeline = gsap.timeline({
+    defaults: { duration: 1, ease: 'power4.out' },
+  })
+  let yCenter = window.innerHeight / 2 - 50
+  let xCenter = window.innerWidth / 2 - 90
+
+  timeline.from('.main-container', {
+    duration: 5,
+    opacity: 0,
+    delay: 0.1,
+  })
+</script> -->
+
+<Layout title="Ao ~ 🦆 | Portfolio">
+  <section class="portfolio">
+    <div class="works">
+      <div class="work">
+        <Image class="work__thumbnail" src={sampleIlegal} alt="Thumbnail Fiesta Ilegal" />
+
+        <div class="work__data">
+          <h3>Custom WordPress Theme Development - Fiesta Ilegal (2024)</h3>
+
+          <div class="brands">
+            <div class="brand">
+              <img
+                src={brandWordpress.src}
+                width={brandWordpress.width}
+                height={brandWordpress.height}
+                alt="Brand Wordpress"
+              />
+            </div>
+            <div class="brand">
+              <img
+                src={brandFigma.src}
+                width={brandFigma.width}
+                height={brandFigma.height}
+                alt="Brand Figma"
+              />
+            </div>
+            <div class="brand">
+              <img
+                src={brandJs.src}
+                width={brandJs.width}
+                height={brandJs.height}
+                alt="Brand Js"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="work">
+        <Image class="work__thumbnail" src={sampleAcademia} alt="Thumbnail Academia" />
+
+        <div class="work__data">
+          <h3>Online Learning Platform Development - Academia Maker (2024)</h3>
+          <div class="brands">
+            <div class="brand">
+              <img
+                src={brandVue.src}
+                width={brandVue.width}
+                height={brandVue.height}
+                alt="Brand Vue"
+              />
+            </div>
+            <div class="brand">
+              <img
+                src={brandNode.src}
+                width={brandNode.width}
+                height={brandNode.height}
+                alt="Brand Node"
+              />
+            </div>
+            <div class="brand">
+              <img
+                src={brandFigma.src}
+                width={brandFigma.width}
+                height={brandFigma.height}
+                alt="Brand Figma"
+              />
+            </div>
+            <div class="brand">
+              <img
+                src={brandHeroku.src}
+                width={brandHeroku.width}
+                height={brandHeroku.height}
+                alt="Brand Heroku"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="work">
+        <Image class="work__thumbnail" src={sampleVina} alt="Thumbnail Viña del Mar" />
+        
+        <div class="work__data">
+          <h3>Website Development for Viña del Mar Festival (2024)</h3>
+          <div class="brands">
+            <div class="brand">
+              <img
+                src={brandAstro.src}
+                width={brandAstro.width}
+                height={brandAstro.height}
+                alt="Brand Astro"
+              />
+            </div>
+            <div class="brand">
+              <img
+                src={brandVercel.src}
+                width={brandVercel.width}
+                height={brandVercel.height}
+                alt="Brand Vercel"
+              />
+            </div>
+            <div class="brand">
+              <img
+                src={brandFigma.src}
+                width={brandFigma.width}
+                height={brandFigma.height}
+                alt="Brand Figma"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="work">
+        <Image class="work__thumbnail" src={sampleAtix} alt="Thumbnail Atix" />
+        
+        <div class="work__data">
+          <h3>Academic Management Platform Development - Atix 5 (2015)</h3>
+          <div class="brands">
+            <div class="brand">
+              <img
+                src={brandRails.src}
+                width={brandRails.width}
+                height={brandRails.height}
+                alt="Brand Rails"
+              />
+            </div>
+            <div class="brand">
+              <img
+                src={brandHeroku.src}
+                width={brandHeroku.width}
+                height={brandHeroku.height}
+                alt="Brand Heroku"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="scroll-indicator">
+    <div class="scroll-indicator__content">
+      <div class="scroll"></div>
+    </div>
+  </div>
+</Layout>
