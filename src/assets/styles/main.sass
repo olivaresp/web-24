@@ -1,5 +1,6 @@
 @forward 'helpers/_mixins'
 
+// Helpers
 @use 'helpers/_normalize'
 @use 'helpers/_colors'
 @use 'helpers/_form'
@@ -8,7 +9,14 @@
 @use 'helpers/_radius'
 @use 'helpers/_spaces'
 @use 'helpers/_typography'
-@use 'helpers/_buttons'
+
+// Elements
+@use 'elements/buttons'
+@use 'elements/scroll-indicator'
+
+// Components
+@use 'components/footer'
+@use 'components/main-nav'
 
 html,
 body
@@ -26,24 +34,105 @@ body
     display: grid
     grid-template-rows: auto 1fr auto
     height: 100svh
-    padding: var(--sp-l)
+    padding: var(--sp-m)
+    padding-bottom: var(--sp-no)
     box-sizing: border-box
 
     .main-content
-      display: flex
-      place-items: center
-      text-align: center
+      overflow: hidden
+      
+      // Index.astro
+      .index-urls
+        display: inline-flex
+        gap: var(--sp-s)
+        flex-direction: column
+        position: absolute
+        bottom: var(--sp-jumbo)
 
-      .main-container
+      // Contact.astro
+      .contact-form
+        display: flex
+        flex-wrap: nowrap
+        align-items: center
+        height: 100%
         width: 100%
 
-        .titles
-          margin-bottom: var(--sp-m)
+        .form--wrapper
+          width: 100%
 
-        .hi,
-        .thanks
-          .btn
-            margin-top: var(--sp-m)
+          .titles
+            margin-bottom: var(--sp-m)
 
-// Exclusivo para vistas SOBRE los 769px de ancho (Tablet y Desktop)
-@media (min-width: 769px)
+      // Thanks.Astro
+      .thanks
+        display: flex
+        gap: var(--sp-m)
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        text-align: center
+        height: 100%
+
+      // Portfolio.Astro
+      .portfolio
+        display: flex
+        align-items: center
+        height: 100%
+        width: 100%
+        overflow: scroll
+        -ms-overflow-style: none
+        scrollbar-width: none
+
+        &::-webkit-scrollbar
+          display: none
+
+        .works
+          display: flex
+          gap: var(--sp-m)
+
+          .work
+            .work__thumbnail
+              max-width: calc(100vw - var(--sp-xl) * 2)
+              height: auto
+
+            .brands
+              display: flex
+              gap: var(--sp-n)
+              margin-top: var(--sp-n)
+              padding-top: var(--sp-m)
+              border-top: 1px solid var(--clr-gray-06)
+              
+              .brand
+                img
+                  max-height: var(--sp-xl)
+                  width: auto
+
+
+@media (min-width: 900px)
+  html,
+  body
+    .content-wrapper
+      padding: var(--sp-xl)
+
+      .main-content
+        // Index.astro
+        .index-urls
+          gap: var(--sp-n)
+          position: inherit
+          margin-top: var(--sp-jumbo)
+
+        // Contact.astro
+        .contact-form
+          .form--wrapper
+            .titles
+              text-align: center
+
+        // Portfolio.Astro
+        .portfolio
+          .works
+            gap: var(--sp-xxl)
+
+            .work
+              .work__thumbnail
+                max-width: 500px
+              
