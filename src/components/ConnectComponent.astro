@@ -45,7 +45,7 @@ const t = useTranslations(lang);
       <input
         type="hidden"
         name="redirect"
-        value="https://ao-web.vercel.app/thanks"
+        value={t('connect.form.redirection')}
       />
       <button class="btn" type="submit">{t('connect.form.action')}</button>
     </form>

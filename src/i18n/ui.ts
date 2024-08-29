@@ -25,6 +25,8 @@ export const ui = {
     // Connect
     'connect.title': "Be cool",
     'connect.subtitle': "Your data is safe and will not be added to spam lists.",
+
+    'connect.form.redirection': "https://ao-web.vercel.app/thanks",
     'connect.form.social.input': "Social name",
     'connect.form.email.input': "Email",
     'connect.form.action': "Send",
@@ -51,6 +53,8 @@ export const ui = {
     // Connect
     'connect.title': "Tranquilo",
     'connect.subtitle': "Tu información esta segura y no será añadida a listas de spam.",
+    
+    'connect.form.redirection': "https://ao-web.vercel.app/es/thanks",
     'connect.form.social.input': "Nombre social",
     'connect.form.email.input': "Correo electrónico",
     'connect.form.action': "Enviar",
