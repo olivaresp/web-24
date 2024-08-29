@@ -1,0 +1,37 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl, useTranslatedPath, getRouteFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const route = getRouteFromUrl(Astro.url) || '';
+const translatePath = useTranslatedPath(lang);
+
+// Images
+import logo from "../assets/images/logo_ao--white.svg";
+---
+<nav class="main-nav">
+  <div class="main-nav__logo-container">
+    <a href={translatePath('/')}>
+      <img
+        class="main-nav__logo"
+        src={logo.src}
+        width={logo.width}
+        height={logo.height}
+        alt="Logo Andrés Olivares"
+      />
+    </a>
+  </div>
+  <div class="main-nav__pres">
+    <p class="main-nav__pres-name">ANDRÉS</p>
+    <p class="main-nav__pres-role">FRONT-END DEV</p>
+  </div>
+  <div class="main-nav__options">
+    <!-- <ul>
+      {Object.entries(languages).map(([lang, label]) => (
+        <li>
+          <a href={translatePath(`/${route}`, lang)}>{label}</a>
+        </li>
+      ))}
+    </ul> -->
+  </div>
+</nav>

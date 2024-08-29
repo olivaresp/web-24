@@ -1,13 +1,18 @@
 ---
-import icoGithub from "../assets/images/ico_github--white.svg";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const year = new Date().getFullYear();
+
+import icoGithub from "../assets/images/ico_github--white.svg";
 ---
 
 <footer class="footer">
   <p class="footer__copyright caption--xs">
-    Buenos Aires, Argentina ⥊ Aconcagua valley, Chile ·
-    {year} · All rights reserved.
+    {t('footer.adress_1')}<br>
+    {t('footer.adress_2')}<br>
+    {year} · {t('footer.rights')}.
   </p>
   <div class="footer__social">
     <a href="https://www.github.com/olivaresp" target="_blank" rel="noopener">

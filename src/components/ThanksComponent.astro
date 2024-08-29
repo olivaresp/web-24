@@ -1,0 +1,34 @@
+---
+import { getLangFromUrl, useTranslatedPath, getRouteFromUrl, useTranslations } from '../i18n/utils';
+
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<script>
+  import { gsap } from 'gsap/dist/gsap'
+
+  const timeline = gsap.timeline({
+    defaults: { duration: 1, ease: 'power4.out' },
+  })
+  let yCenter = window.innerHeight / 2 - 50
+  let xCenter = window.innerWidth / 2 - 90
+
+  timeline.from('.main-container', {
+    duration: 5,
+    opacity: 0,
+    delay: 0.1,
+  })
+</script>
+
+<section class="thanks">
+  <div class="titles">
+    <h3>{t('thanks.title')}</h3>
+    <p>
+      {t('thanks.description')}
+    </p>
+  </div>
+  <a class="btn" href={translatePath('/')}>{t('thanks.action')}</a>
+</section>
