@@ -35,7 +35,7 @@ body
     grid-template-rows: auto 1fr auto
     height: 100svh
     padding: var(--sp-m)
-    padding-bottom: var(--sp-no)
+    padding-bottom: var(--sp-n)
     box-sizing: border-box
 
     .main-content
@@ -75,8 +75,12 @@ body
 
       // Portfolio.Astro
       .portfolio
+        position: relative
         display: flex
-        align-items: center
+        flex-direction: column
+        justify-content: center
+        align-items: flex-start
+        gap: var(--sp-l)
         height: 100%
         width: 100%
         overflow: scroll
@@ -119,7 +123,7 @@ body
         .index-urls
           gap: var(--sp-n)
           position: inherit
-          margin-top: var(--sp-jumbo)
+          margin-top: var(--sp-xxxl)
 
         // Contact.astro
         .contact-form
@@ -129,6 +133,7 @@ body
 
         // Portfolio.Astro
         .portfolio
+          gap: var(--sp-xxl)
           .works
             gap: var(--sp-xxl)
 

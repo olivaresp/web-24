@@ -31,6 +31,45 @@
   .main-nav__options
     margin-left: auto
 
+  .lang-selector
+    position: relative
+
+    .lang-button
+      color: var(--clr-white)
+      border: none
+      font-family: var(--ff-bold)
+      text-transform: uppercase
+      padding: var(--sp-n)
+      border-radius: var(--radius)
+      background-color: var(--clr-black)
+      cursor: pointer
+
+      &:focus
+        background-color: var(--clr-gray-07)
+
+    .langs
+      display: none
+      position: absolute
+      right: 0
+      background-color: var(--clr-gray-07)
+      list-style: none
+      margin-top: var(--sp-n)
+      padding: 0
+      border-radius: var(--radius)
+
+      &.show
+        display: block
+        z-index: 1
+
+      .lang
+        a
+          display: block
+          text-decoration: none
+          font-family: var(--ff-bold)
+          padding: var(--sp-m) var(--sp-l)
+          cursor: pointer
+
+
 @media (min-width: 900px)
   .main-nav
     grid-template-columns: repeat(3, 1fr)
