@@ -1,17 +1,22 @@
 ---
-import { languages } from '../i18n/ui';
-import { getLangFromUrl, useTranslatedPath, getRouteFromUrl } from '../i18n/utils';
+import { languages } from "../i18n/ui";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  getRouteFromUrl,
+} from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const route = getRouteFromUrl(Astro.url) || '';
+const route = getRouteFromUrl(Astro.url) || "";
 const translatePath = useTranslatedPath(lang);
 
 // Images
 import logo from "../assets/images/logo_ao--white.svg";
 ---
+
 <nav class="main-nav">
   <div class="main-nav__logo-container">
-    <a href={translatePath('/')}>
+    <a href={translatePath("/")}>
       <img
         class="main-nav__logo"
         src={logo.src}
@@ -29,35 +34,52 @@ import logo from "../assets/images/logo_ao--white.svg";
     <div class="lang-selector">
       <button class="lang-button" id="langButton">{lang}</button>
       <ul class="langs" id="langMenu">
-        {Object.entries(languages).map(([keyLang, label]) => (
-          keyLang !== lang && (
-            <li class="lang">
-              <a href={translatePath(`/${route}`, keyLang)}>{label}</a>
-            </li>
+        {
+          Object.entries(languages).map(
+            ([keyLang, label]) =>
+              keyLang !== lang && (
+                <li class="lang">
+                  <a href={translatePath(`/${route}`, keyLang)}>{label}</a>
+                </li>
+              )
           )
-        ))}
+        }
       </ul>
     </div>
   </div>
 </nav>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const langButton = document.getElementById('langButton');
-    const langMenu = document.getElementById('langMenu');
+  function setupLanguageSelector() {
+    const langButton = document.getElementById("langButton");
+    const langMenu = document.getElementById("langMenu");
 
-    langButton.addEventListener('click', function(event) {
-      event.stopPropagation();
-      langMenu.classList.toggle('show');
+    if (!langButton || !langMenu) return;
+
+    function toggleMenu(e) {
+      e.stopPropagation();
+      langMenu.classList.toggle("show");
+    }
+
+    function closeMenu() {
+      langMenu.classList.remove("show");
+    }
+
+    langButton.addEventListener("click", toggleMenu);
+    document.addEventListener("click", closeMenu);
+
+    // Cerrar el menú cuando se selecciona un idioma
+    langMenu.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") closeMenu();
     });
+  }
 
-    langMenu.addEventListener('click', function(event) {
-      event.stopPropagation();
-      langMenu.classList.remove('show');
-    });
+  document.addEventListener("astro:page-load", setupLanguageSelector);
 
-    document.addEventListener('click', function() {
-      langMenu.classList.remove('show');
+  document.addEventListener("astro:before-swap", () => {
+    ["langButton", "langMenu"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.replaceWith(el.cloneNode(true));
     });
   });
 </script>
