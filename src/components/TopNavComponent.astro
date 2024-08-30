@@ -26,12 +26,38 @@ import logo from "../assets/images/logo_ao--white.svg";
     <p class="main-nav__pres-role">FRONT-END DEV</p>
   </div>
   <div class="main-nav__options">
-    <!-- <ul>
-      {Object.entries(languages).map(([lang, label]) => (
-        <li>
-          <a href={translatePath(`/${route}`, lang)}>{label}</a>
-        </li>
-      ))}
-    </ul> -->
+    <div class="lang-selector">
+      <button class="lang-button" id="langButton">{lang}</button>
+      <ul class="langs" id="langMenu">
+        {Object.entries(languages).map(([keyLang, label]) => (
+          keyLang !== lang && (
+            <li class="lang">
+              <a href={translatePath(`/${route}`, keyLang)}>{label}</a>
+            </li>
+          )
+        ))}
+      </ul>
+    </div>
   </div>
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const langButton = document.getElementById('langButton');
+    const langMenu = document.getElementById('langMenu');
+
+    langButton.addEventListener('click', function(event) {
+      event.stopPropagation();
+      langMenu.classList.toggle('show');
+    });
+
+    langMenu.addEventListener('click', function(event) {
+      event.stopPropagation();
+      langMenu.classList.remove('show');
+    });
+
+    document.addEventListener('click', function() {
+      langMenu.classList.remove('show');
+    });
+  });
+</script>
