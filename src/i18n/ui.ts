@@ -69,7 +69,10 @@ export const ui = {
     'tag.skills.heroku-deployment': "Heroku Deployment",
     'tag.skills.astro-build-development': "Astro.build Development",
     'tag.skills.vercel-hosting': "Vercel Hosting",
-    'tag.skills.information-architecture': "Information Architecture"
+    'tag.skills.information-architecture': "Information Architecture",
+
+    // Actions
+    'action.view-more': "View more"
   },
   es: {
     // Nav
@@ -124,7 +127,10 @@ export const ui = {
     'tag.skills.heroku-deployment': "Despliegue Heroku",
     'tag.skills.astro-build-development': "Desarrollo Astro.build",
     'tag.skills.vercel-hosting': "Despliegue Vercel",
-    'tag.skills.information-architecture': "Arqitectura de información"
+    'tag.skills.information-architecture': "Arqitectura de información",
+
+    // Actions
+    'action.view-more': "Ver más"
   },
 } as const;
 
