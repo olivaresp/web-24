@@ -3,7 +3,7 @@
   --fs-title-1: 64px
   --fs-title-2: 36px
   --fs-title-3: 24px
-  --fs-paragraph: 16px
+  --fs-paragraph: 20px
   --fs-paragraph-xs: 14px
   --fs-caption: 12px
   --fs-caption-xs: 10px
@@ -27,6 +27,7 @@
 // Base font styles
 h1, h2, h3, h4, h5, h6, p
   margin: var(--sp-no)
+  text-transform: uppercase
 
 h1
   font-family: var(--ff-bold)
@@ -36,8 +37,9 @@ h1
 h2
   font-family: var(--ff-bold)
   font-size: var(--fs-title-2)
-  letter-spacing: 0.1rem
-  line-height: 44px
+  letter-spacing: 0.05rem
+  line-height: 32px
+  max-width: 720px
 
 h3
   font-family: var(--ff-bold)
@@ -62,11 +64,11 @@ h6
 
 p
   font-family: var(--ff-regular)
-  font-size: var(--fs-caption)
-  line-height: 22px
-  letter-spacing: 0.1rem
+  font-size: var(--fs-paragraph)
+  line-height: 26px
   overflow-wrap: break-word
   hyphens: none
+  text-transform: none
 
   &.paragraph-sm
     font-size: var(--fs-paragraph-sm)
@@ -75,10 +77,12 @@ p
   &.caption
     font-size: var(--fs-caption)
     line-height: 16px
+    text-transform: uppercase
 
   &.caption--xs
     font-size: var(--fs-caption-xs)
     line-height: 11px
+    text-transform: uppercase
 
 strong
   font-family: var(--ff-bold)
