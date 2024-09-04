@@ -72,7 +72,7 @@ export const ui = {
     'tag.skills.information-architecture': "Information Architecture",
 
     // Actions
-    'action.view-more': "View more"
+    'action.see-more': "See more"
   },
   es: {
     // Nav
@@ -130,7 +130,7 @@ export const ui = {
     'tag.skills.information-architecture': "Arqitectura de información",
 
     // Actions
-    'action.view-more': "Ver más"
+    'action.see-more': "Ver más"
   },
 } as const;
 
