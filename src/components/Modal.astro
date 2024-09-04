@@ -1,0 +1,32 @@
+---
+interface Props {
+  id: string;
+  title: string;
+}
+const { id, title } = Astro.props;
+
+import logo from "../assets/images/logo_ao--white.svg";
+---
+
+<div id={id} class="modal">
+  <div class="modal-content">
+    <div class="modal-top">
+      <img
+        class="main-nav__logo"
+        src={logo.src}
+        width={logo.width}
+        height={logo.height}
+        alt="Logo Andrés Olivares"
+      />
+      <span class="close">&times;</span>
+    </div>
+    <div class="modal-body__wrapper">
+      <div class="modal-titles">
+        <h2>{title}</h2>
+      </div>
+      <div class="modal-body">
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>

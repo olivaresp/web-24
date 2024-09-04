@@ -13,10 +13,12 @@
 // Elements
 @use 'elements/buttons'
 @use 'elements/scroll-indicator'
+@use 'elements/tags'
 
 // Components
 @use 'components/footer'
 @use 'components/main-nav'
+@use 'components/modal'
 
 html,
 body
@@ -26,7 +28,6 @@ body
   padding: var(--sp-no)
   font-family: var(--ff-regular)
   font-size: var(--fs-paragraph)
-  text-transform: uppercase
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
@@ -48,6 +49,9 @@ body
         flex-direction: column
         position: absolute
         bottom: var(--sp-jumbo)
+
+        h2
+          line-height: 40px
 
       // Contact.astro
       .contact-form
@@ -75,12 +79,11 @@ body
 
       // Portfolio.Astro
       .portfolio
-        position: relative
-        display: flex
+        display: inline-flex
         flex-direction: column
         justify-content: center
         align-items: flex-start
-        gap: var(--sp-l)
+        gap: var(--sp-xxl)
         height: 100%
         width: 100%
         overflow: scroll
@@ -91,26 +94,61 @@ body
           display: none
 
         .works
-          display: flex
+          display: grid
+          grid-template-columns: repeat(4, 1fr)
+          justify-content: flex-start
           gap: var(--sp-m)
 
           .work
+            display: flex
+            flex-direction: column
+            gap: var(--sp-m)
+
+            .work__data
+              height: 100%
+              display: flex
+              flex-direction: column
+              justify-content: space-between
+              gap: var(--sp-n)
+
+              .work__data-year
+                margin-bottom: var(--sp-s)
+                color: var(--clr-gray-01)
+
             .work__thumbnail
-              max-width: calc(100vw - var(--sp-xl) * 2)
+              max-width: calc(100vw - var(--sp-xxl) * 2)
               height: auto
+              border-radius: var(--radius)
+
+            .work-role
+              margin-block: var(--sp-s)
+
+              &::before
+                content: '·'
+                margin-right: var(--sp-n)
+
+            .work-description
+              p
+                font-size: var(--fs-paragraph)
+                text-transform: none
 
             .brands
               display: flex
               gap: var(--sp-n)
-              margin-top: var(--sp-n)
-              padding-top: var(--sp-m)
+              margin-top: var(--sp-no)
+              padding-top: var(--sp-n)
               border-top: 1px solid var(--clr-gray-06)
               
               .brand
+                display: inline-block
+
                 img
-                  max-height: var(--sp-xl)
+                  max-height: var(--sp-l)
                   width: auto
 
+  hr
+    border: none
+    border-bottom: 1px solid var(--clr-gray-05)
 
 @media (min-width: 900px)
   html,
@@ -133,11 +171,15 @@ body
 
         // Portfolio.Astro
         .portfolio
-          gap: var(--sp-xxl)
+          gap: var(--sp-xl)
+
           .works
             gap: var(--sp-xxl)
 
             .work
               .work__thumbnail
                 max-width: 500px
+
+              .work__data
+                gap: var(--sp-m)
               

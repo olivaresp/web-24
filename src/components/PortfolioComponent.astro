@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import Modal from './Modal.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -21,33 +22,13 @@ import brandVue from "../assets/images/brands/brand-vue.svg";
 import brandWordpress from "../assets/images/brands/brand-wordpress.svg";
 ---
 
-<!-- <script>
-  import { gsap } from 'gsap/dist/gsap'
-
-  const timeline = gsap.timeline({
-    defaults: { duration: 1, ease: 'power4.out' },
-  })
-  let yCenter = window.innerHeight / 2 - 50
-  let xCenter = window.innerWidth / 2 - 90
-
-  timeline.from('.main-container', {
-    duration: 5,
-    opacity: 0,
-    delay: 0.1,
-  })
-</script> -->
-
 <section class="portfolio">
   <div class="works">
-    <div class="work">
-      <Image class="work__thumbnail" src={sampleIlegal} alt="Thumbnail Fiesta Ilegal" />
-
-      <div class="work__data">
-        <h3>{t('work.ilegal.title')}</h3>
-
-        <div class="brands">
-          <div class="brand">
-            <img
+    <a class="work">
+      <div class="work__top"> 
+        <!-- <div class="brands">
+        <div class="brand">
+          <img
               src={brandWordpress.src}
               width={brandWordpress.width}
               height={brandWordpress.height}
@@ -70,15 +51,23 @@ import brandWordpress from "../assets/images/brands/brand-wordpress.svg";
               alt="Brand Js"
             />
           </div>
+        </div> -->
+      </div>
+      <Image class="work__thumbnail" src={sampleIlegal} alt="Thumbnail Fiesta Ilegal" />
+      <div class="work__data">
+        <div class="work__data-titles">
+          <h4 class="work__data-year">{t('work.ilegal.year')}</h4>
+          <h3>{t('work.ilegal.title')}</h3>
+        </div>
+        <div class="form__actions">
+          <div class="btn btn--sm open-modal" data-modal="1">Ver más</div>
         </div>
       </div>
-    </div>
-    <div class="work">
-      <Image class="work__thumbnail" src={sampleAcademia} alt="Thumbnail Academia" />
+    </a>
 
-      <div class="work__data">
-        <h3>{t('work.academia.title')}</h3>
-        <div class="brands">
+    <a class="work">
+      <div class="work__top">
+        <!-- <div class="brands">
           <div class="brand">
             <img
               src={brandVue.src}
@@ -111,15 +100,23 @@ import brandWordpress from "../assets/images/brands/brand-wordpress.svg";
               alt="Brand Heroku"
             />
           </div>
+        </div> -->
+      </div>
+      <Image class="work__thumbnail" src={sampleAcademia} alt="Thumbnail Academia" />
+      <div class="work__data">
+        <div class="work__data-titles">
+          <h4 class="work__data-year">{t('work.academia.year')}</h4>
+          <h3>{t('work.academia.title')}</h3>
+        </div>
+        <div class="form__actions">
+          <div class="btn btn--sm open-modal" data-modal="2">Ver más</div>
         </div>
       </div>
-    </div>
-    <div class="work">
-      <Image class="work__thumbnail" src={sampleVina} alt="Thumbnail Viña del Mar" />
-      
-      <div class="work__data">
-        <h3>{t('work.vina.title')}</h3>
-        <div class="brands">
+    </a>
+    
+    <a class="work">
+      <div class="work__top">
+        <!-- <div class="brands">
           <div class="brand">
             <img
               src={brandAstro.src}
@@ -144,15 +141,23 @@ import brandWordpress from "../assets/images/brands/brand-wordpress.svg";
               alt="Brand Figma"
             />
           </div>
+        </div> -->
+      </div>
+      <Image class="work__thumbnail" src={sampleVina} alt="Thumbnail Viña del Mar" />
+      <div class="work__data">
+        <div class="work__data-titles">
+          <h4 class="work__data-year">{t('work.vina.year')}</h4>
+          <h3>{t('work.vina.title')}</h3>
+        </div>
+        <div class="form__actions">
+          <div class="btn btn--sm open-modal" data-modal="3">Ver más</div>
         </div>
       </div>
-    </div>
-    <div class="work">
-      <Image class="work__thumbnail" src={sampleAtix} alt="Thumbnail Atix" />
-      
-      <div class="work__data">
-        <h3>{t('work.atix.title')}</h3>
-        <div class="brands">
+    </a>
+    
+    <a class="work">
+      <div class="work__top">
+        <!-- <div class="brands">
           <div class="brand">
             <img
               src={brandRails.src}
@@ -169,9 +174,19 @@ import brandWordpress from "../assets/images/brands/brand-wordpress.svg";
               alt="Brand Heroku"
             />
           </div>
+        </div> -->
+      </div>
+      <Image class="work__thumbnail" src={sampleAtix} alt="Thumbnail Atix" />
+      <div class="work__data">
+        <div class="work__data-titles">
+          <h4 class="work__data-year">{t('work.atix.year')}</h4>
+          <h3>{t('work.atix.title')}</h3>
+        </div>
+        <div class="form__actions">
+          <div class="btn btn--sm open-modal" data-modal="4">Ver más</div>
         </div>
       </div>
-    </div>
+    </a>
   </div>
   <div class="scroll-indicator">
     <div class="scroll-indicator__content">
@@ -179,3 +194,163 @@ import brandWordpress from "../assets/images/brands/brand-wordpress.svg";
     </div>
   </div>
 </section>
+
+<Modal id="1" title={t('work.ilegal.title')}>
+  <hr>
+  <p class="caption">{t('work.role')}</p>
+  <h4>{t('work.ilegal.role')}</h4>
+  <hr>
+  <Image class="work__thumbnail" src={sampleIlegal} alt="Thumbnail Fiesta Ilegal" />
+  <hr>
+  <div class="work-tags">
+    <div class="tags">
+      <div class="tag">
+        {t('tag.skills.wordpress-development')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.ux-ui-Design')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.figma')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.web-maintenance')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.seo-optimization')}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="work-description">
+    <p>{t('work.ilegal.description')}</p>
+  </div>
+</Modal>
+
+<Modal id="2" title={t('work.academia.title')}>
+  <hr>
+  <p class="caption">{t('work.role')}</p>
+  <h4>{t('work.academia.role')}</h4>
+  <hr>
+  <Image class="work__thumbnail" src={sampleAcademia} alt="Thumbnail Academia" />
+  <hr>
+  <div class="work-tags">
+    <div class="tags">
+      <div class="tag">
+        {t('tag.skills.vue-js-development')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.ux-ui-Design')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.node-js')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.google-services')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.heroku-deployment')}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="work-description">
+    <p>{t('work.academia.description')}</p>
+  </div>
+</Modal>
+
+<Modal id="3" title={t('work.vina.title')}>
+  <hr>
+  <p class="caption">{t('work.role')}</p>
+  <h4>{t('work.vina.role')}</h4>
+  <hr>
+  <Image class="work__thumbnail" src={sampleVina} alt="Thumbnail Viña del Mar" />
+  <hr>
+  <div class="work-tags">
+    <div class="tags">
+      <div class="tag">
+        {t('tag.skills.astro-build-development')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.ux-ui-Design')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.seo-optimization')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.vercel-hosting')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.information-architecture')}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="work-description">
+    <p>{t('work.vina.description')}</p>
+  </div>
+</Modal>
+
+<Modal id="4" title={t('work.atix.title')}>
+  <hr>
+  <p class="caption">{t('work.role')}</p>
+  <h4>{t('work.atix.role')}</h4>
+  <hr>
+  <Image class="work__thumbnail" src={sampleAtix} alt="Thumbnail Atix" />
+  <hr>
+  <div class="work-tags">
+    <div class="tags">
+      <div class="tag">
+        {t('tag.skills.front-end-development')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.ux-ui-Design')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.javascript')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.ruby-on-rails')}
+      </div>
+      <div class="tag">
+        {t('tag.skills.devops')}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="work-description">
+    <p>{t('work.atix.description')}</p>
+  </div>
+</Modal>
+
+<script>
+  // Script para manejar la apertura y cierre de modales
+  document.addEventListener('astro:page-load', () => {
+    const openButtons = document.querySelectorAll('.open-modal');
+    const closeButtons = document.querySelectorAll('.modal .close');
+    const modals = document.querySelectorAll('.modal');
+
+    openButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modalId = button.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'block';
+      });
+    });
+
+    closeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modal = button.closest('.modal');
+        modal.style.display = 'none';
+      });
+    });
+
+    window.addEventListener('click', (event) => {
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

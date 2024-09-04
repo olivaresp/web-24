@@ -1,13 +1,12 @@
+.main-nav__logo
+  height: 30px
+  width: auto
+  text-align: left
+
 .main-nav
   display: grid
   grid-template-columns: repeat(2, 1fr)
   align-items: center
-
-  .main-nav__logo-container
-    .main-nav__logo
-      height: 30px
-      width: auto
-      text-align: left
 
   .main-nav__pres
     text-align: center
@@ -42,16 +41,17 @@
       background-color: var(--clr-black)
       cursor: pointer
 
-      &:focus
-        background-color: var(--clr-gray-07)
+      &:focus,
+      &:active
+        background-color: var(--clr-gray-06)
 
     .langs
       display: none
       position: absolute
       right: 0
-      background-color: var(--clr-gray-07)
+      background-color: var(--clr-gray-06)
       list-style: none
-      margin-top: var(--sp-n)
+      margin-top: var(--sp-xs)
       padding: 0
       border-radius: var(--radius)
 
@@ -69,12 +69,11 @@
 
 
 @media (min-width: 900px)
+  .main-nav__logo
+    height: 30px
+
   .main-nav
     grid-template-columns: repeat(3, 1fr)
-
-    .main-nav__logo-container
-      .main-nav__logo
-        height: 30px
 
     .main-nav__pres
       display: block
