@@ -6,6 +6,7 @@ const t = useTranslations(lang);
 const year = new Date().getFullYear();
 
 import icoGithub from "../assets/images/ico_github--white.svg";
+import icoLinkedin from "../assets/images/ico_linkedin--white.svg";
 ---
 
 <footer class="footer">
@@ -15,9 +16,18 @@ import icoGithub from "../assets/images/ico_github--white.svg";
     {year} · {t('footer.rights')}.
   </p>
   <div class="footer__social">
+    <a href="https://www.linkedin.com/in/olivaresp/" target="_blank" rel="noopener">
+      <img
+        class="footer__ico"
+        src={icoLinkedin.src}
+        width={icoLinkedin.width}
+        height={icoLinkedin.height}
+        alt="Icono LinkedIn"
+      />
+    </a>
     <a href="https://www.github.com/olivaresp" target="_blank" rel="noopener">
       <img
-        class="footer__ico-github"
+        class="footer__ico"
         src={icoGithub.src}
         width={icoGithub.width}
         height={icoGithub.height}
