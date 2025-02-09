@@ -1,0 +1,84 @@
+---
+---
+<canvas id="canvas"></canvas>
+
+<script src="/js/homeAnimationScript.js" is:inline></script>
+<script>
+  // Variables principales
+  let canvas, ctx, w, h, m, simplex, ticker, mx, my;
+
+  // Función de configuración inicial
+  const setup = () => {
+    canvas = document.querySelector("#canvas");
+    ctx = canvas.getContext("2d");
+    reset();
+    window.addEventListener("resize", reset);
+    canvas.addEventListener("mousemove", mousemove);
+  };
+
+  // Función para reiniciar los valores y configurar el canvas
+  const reset = () => {
+    simplex = new SimplexNoise();
+    ticker = 0;
+    w = canvas.width = window.innerHeight * 1.4;
+    h = canvas.height = window.innerHeight * 1.4;
+    m = Math.min(w, h);
+    mx = w / 1;
+    my = h / 1.5;
+  };
+
+  // Función para manejar el movimiento del ratón
+  const mousemove = (event) => {
+    mx = event.clientX + 1;
+    my = event.clientY + 1;
+  };
+
+  // Función principal de dibujo
+  const draw = () => {
+    ticker += 0.005;
+    requestAnimationFrame(draw);
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = "white";
+    for (let i = 10; i < m / 2 - 40; i += 20) {
+      drawCircle(i);
+    }
+  };
+
+  // Función para dibujar un círculo
+  const drawCircle = (r) => {
+    ctx.beginPath();
+    let startPoint;
+    for (let angle = 0; angle <= Math.PI * 2; angle += 0.001) {
+      const [x, y] = calcPoint(angle, r);
+      if (angle === 0) {
+        startPoint = [x, y];
+      }
+      ctx.lineTo(x, y);
+    }
+    ctx.lineTo(startPoint[0], startPoint[1]);
+    ctx.closePath();
+    ctx.stroke();
+  };
+
+  // Función para calcular un punto en el círculo con ruido
+  const calcPoint = (angle, r) => {
+    const noiseFactor = (mx / w) * 50;
+    const zoom = (my / h) * 190;
+    let x = Math.cos(angle) * r + w / 2;
+    let y = Math.sin(angle) * r + h / 2;
+    const n = simplex.noise3D(x / zoom, y / zoom, ticker) * noiseFactor;
+    x = Math.cos(angle) * (r + n) + w / 2;
+    y = Math.sin(angle) * (r + n) + h / 2;
+    return [x, y];
+  };
+
+
+  const initializeAnimation = () => {
+    setup();
+  };
+
+  document.addEventListener('astro:page-load', initializeAnimation);
+  
+  draw();
+</script>

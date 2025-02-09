@@ -36,3 +36,35 @@ import icoLinkedin from "../assets/images/ico_linkedin--white.svg";
     </a>
   </div>
 </footer>
+
+<style lang="sass">
+  .footer
+    display: flex
+    justify-content: space-between
+    gap: var(--sp-l)
+    align-items: center
+    position: absolute
+    bottom: 0
+    width: 100%
+    padding: var(--sp-m)
+    box-sizing: border-box
+    z-index: 9
+
+    .footer__copyright
+      color: var(--clr-white)
+      letter-spacing: .1rem
+      margin-right: calc(.4rem * -1)
+      line-height: inherit
+    
+    .footer__social
+      display: flex
+      align-items: center
+      gap: var(--sp-n)
+
+      a
+        text-decoration: none
+
+  @media (min-width: 900px)
+    .footer
+      padding: var(--sp-xl)
+</style>
