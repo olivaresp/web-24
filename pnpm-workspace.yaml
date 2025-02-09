@@ -1,0 +1,12 @@
+# pnpm-workspace.yaml
+
+packages:
+  - packages/*
+  - examples/*
+  - plugins/*
+  - themes/*
+  - templates/*
+  - tools/*
+  - scripts/*
+  - docs/*
+  - test/*
