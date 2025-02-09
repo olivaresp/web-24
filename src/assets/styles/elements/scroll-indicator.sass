@@ -8,6 +8,7 @@
   transition: all 400ms ease-out
   visibility: visible
   opacity: 1
+  margin-inline: var(--sp-m)
 
   &.hidden
     visibility: hidden
@@ -59,3 +60,7 @@
   100%
     opacity: 0
     transform: translateX(calc(-30px / 2))
+
+@media (min-width: 900px)
+  .scroll-indicator
+    margin-inline: var(--sp-xl)

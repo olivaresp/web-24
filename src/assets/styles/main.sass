@@ -16,8 +16,6 @@
 @use 'elements/tags'
 
 // Components
-@use 'components/footer'
-@use 'components/main-nav'
 @use 'components/modal'
 
 html,
@@ -30,28 +28,49 @@ body
   font-size: var(--fs-paragraph)
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+  margin: 0
 
   .content-wrapper
     display: grid
     grid-template-rows: auto 1fr auto
     height: 100svh
-    padding: var(--sp-m)
+    width: 100svw
+    // padding: var(--sp-m)
     padding-bottom: var(--sp-n)
     box-sizing: border-box
 
     .main-content
+      height: 100svh
+      width: 100svw
+      // padding-inline: var(--sp-m)
+      box-sizing: border-box
       overflow: hidden
       
       // Index.astro
-      .index-urls
-        display: inline-flex
-        gap: var(--sp-s)
-        flex-direction: column
-        position: absolute
-        bottom: var(--sp-jumbo)
+      .home
+        display: flex
+        justify-content: space-between
+        position: relative
+        height: 100svh
+        .index-urls
+          flex: 0 0 auto
+          display: inline-flex
+          gap: var(--sp-s)
+          flex-direction: column
+          position: absolute
+          bottom: var(--sp-jumbo)
+          z-index: 1
+          padding: var(--sp-m)
+          h2
+            line-height: 40px
+        .animation-container
+          opacity: 0.4
+          position: absolute
+          right: 0
+          transform: translate(400px, 80px)
 
-        h2
-          line-height: 40px
+          #canvas
+            display: block
 
       // Contact.astro
       .contact-form
@@ -98,6 +117,7 @@ body
           grid-template-columns: repeat(4, 1fr)
           justify-content: flex-start
           gap: var(--sp-m)
+          margin-inline: var(--sp-m)
 
           .work
             display: flex
@@ -154,14 +174,17 @@ body
   html,
   body
     .content-wrapper
-      padding: var(--sp-xl)
+      // padding: var(--sp-xl)
 
       .main-content
         // Index.astro
-        .index-urls
-          gap: var(--sp-n)
-          position: inherit
-          margin-top: var(--sp-xxxl)
+        // padding-inline: var(--sp-xl)
+        .home
+          .index-urls
+            gap: var(--sp-n)
+            top: 0
+            margin-top: var(--sp-jumbo)
+            padding: var(--sp-xl)
 
         // Contact.astro
         .contact-form
@@ -175,6 +198,7 @@ body
 
           .works
             gap: var(--sp-xxl)
+            margin-inline: var(--sp-xl)
 
             .work
               .work__thumbnail
