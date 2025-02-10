@@ -29,6 +29,9 @@ importers:
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
+      static:
+        specifier: link:@astrojs/vercel/static
+        version: link:@astrojs/vercel/static
 
 packages:
 

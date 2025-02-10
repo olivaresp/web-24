@@ -17,6 +17,7 @@
     "astro": "^5.2.5",
     "gsap": "^3.12.7",
     "sass": "^1.84.0",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "static": "link:@astrojs/vercel/static"
   }
 }
